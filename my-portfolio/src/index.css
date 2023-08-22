@@ -5,7 +5,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html{
+  scroll-behavior: smooth;
+}
 
-/* @tailwind base; */
+
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
