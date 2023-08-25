@@ -18,7 +18,7 @@ export default class navbar extends Component{
                     <a href="#"><BiSolidHome className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
                     <a href="#about"><HiOutlineInformationCircle className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
                     <a href="#experience"><MdWorkHistory className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
-                    <a><GoProjectSymlink className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
+                    <a href="#projects"><GoProjectSymlink className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
                     <a><GiSkills className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer" /></a>
                 </div>
             </div>

@@ -6,6 +6,9 @@ import Navbar from './components/navbar/navbar'
 import Home from './components/home/home';
 import About from './components/about/about';
 import Experience from './components/experience/experience';
+import Projects from './components/projects/projects';
+import Footer from './components/footer/footer';
+
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
         <About />
         <Navbar />
         <Experience />
+        <Projects />
+        <Footer />
 
     </div>
   );
