@@ -27,7 +27,7 @@ export default class About extends Component{
 
     render(){
         return(
-            <div id="about" className='h-fit h-fit mb-10 w-[100vw] mt-[0vw]'>
+            <div id="about" className='h-fit h-fit mb-10 w-[100vw] mt-[5vw]'>
                 <h1 className='sm:text-[3.5vw] text-[5vw] ml-[5%] mb-2 text-white font-bold'>&lt;About Me / &gt;</h1>
                 <div className="grid grid-cols-[35vw_65vw] items-center justify-center pt-[3vw] ml-[20%]">
                     <img src={MyPic} className="relative h-[35vw] rounded-xl"></img>
@@ -73,6 +73,10 @@ export default class About extends Component{
                                         case 'C:\\NirmalC> clear':
                                             this.state.output="Welcome to my terminal. Enter 'help' to get started"
                                             new_output=this.state.output
+                                            break;
+                                        default:
+                                            new_output+="<p style='margin-left:5%;'>Invalid command; see 'help' for available commands </p>"
+                                            break;
                                     }
                                     this.setState({input:'',output:new_output})
                                 }

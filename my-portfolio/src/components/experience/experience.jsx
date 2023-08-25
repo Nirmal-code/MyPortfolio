@@ -39,7 +39,7 @@ export default class Experience extends Component{
                             Developed a new structured merge tool for Python and Java source code. Improved accuracy over existing solutions by almost 30%, and integrated it with Git software.
                         </p>
                         <p><b>Tools</b>: Git, Java, Python, Abstract Syntax Tree (AST), Concrete Syntax Tree (CST), Tree-Sitter, Gumtree, jDime, Spork</p>
-                        <img className="w-[25%] h-fit relative left-[37.5%]" src={McSCert} alt='McSCert' />
+                        <img className="w-[25%] relative left-[37.5%]" src={McSCert} alt='McSCert' />
 
                     </VerticalTimelineElement>
 
@@ -57,7 +57,7 @@ export default class Experience extends Component{
                         Collaborated with experienced programmers using Git to develop websites using JavaScript frameworks for the purpose of making a positive difference in my community by recognizing pertinacious individuals and giving them a platform to talk to others. </p>
                         <p><b>Tools</b>: Git, JavaScript, NodeJS, React.js, HTML, CSS, Gatsby Cloud</p>
 
-                        <img className="w-[25%] h-fit relative left-[37.5%]" src={sfl} alt='SFL' />
+                        <img className="w-[25%] relative left-[37.5%]" src={sfl} alt='SFL' />
 
                     </VerticalTimelineElement>
 
@@ -78,7 +78,7 @@ export default class Experience extends Component{
                         </p>
                         <p><b>Skills</b>: Collaborative Leadership, Mentoring, Jira, Event Planning</p>
 
-                        <img className="w-[30%] h-fit relative left-[32.5%] rounded-lg" src={archway} alt='archway' />
+                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={archway} alt='archway' />
 
                     </VerticalTimelineElement>
 
@@ -98,7 +98,7 @@ export default class Experience extends Component{
                         </p>
                         <p><b>Tools</b>: Git, React.js, JavaScript, HTML, CSS</p>
 
-                        <img className="w-[30%] h-fit relative left-[32.5%] rounded-lg" src={uclub} alt='uclub' />
+                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={uclub} alt='uclub' />
 
                     </VerticalTimelineElement>
 
@@ -118,7 +118,7 @@ export default class Experience extends Component{
                             Collaborated with management and associates to manage inventory using MST Lite to increase accessibility of merchandise to customers.</p>
                         <p><b>Skills</b>: Communication, Inventory Management, Customer Engagement</p>
 
-                        <img className="w-[30%] h-fit relative left-[32.5%] rounded-lg" src={homedepot} alt='homedepot' />
+                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={homedepot} alt='homedepot' />
 
                     </VerticalTimelineElement>
 
@@ -137,7 +137,7 @@ export default class Experience extends Component{
                         Programmed a car's microcontrollers to adjust values of registers using C to ensure that car components interact accurately. Collaborated with other experienced programmers using the MATLAB and Simulink environments to create C programs using various cells in control systems.</p>
                         <p><b>Tools</b>: C, Matlab, Simulink, MicroControllers</p>
 
-                        <img className="w-[30%] h-fit relative left-[32.5%] rounded-lg" src={formula} alt='formula' />
+                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={formula} alt='formula' />
 
                     </VerticalTimelineElement>
 
