@@ -5,6 +5,7 @@ import "react-star-sky/dist/index.css";
 import Navbar from './components/navbar/navbar'
 import Home from './components/home/home';
 import About from './components/about/about';
+import Experience from './components/experience/experience';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Home />
         <About />
         <Navbar />
+        <Experience />
 
     </div>
   );

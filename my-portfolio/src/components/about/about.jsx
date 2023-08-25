@@ -27,16 +27,16 @@ export default class About extends Component{
 
     render(){
         return(
-            <div id="about" className='h-[130vh] text-white h-fit mb-20 w-[100vw] mt-[5vw]'>
-                <h1 className='text-[3.5vw] ml-[5%]'>&lt;About Me / &gt;</h1>
+            <div id="about" className='h-fit h-fit mb-10 w-[100vw] mt-[0vw]'>
+                <h1 className='sm:text-[3.5vw] text-[5vw] ml-[5%] mb-2 text-white font-bold'>&lt;About Me / &gt;</h1>
                 <div className="grid grid-cols-[35vw_65vw] items-center justify-center pt-[3vw] ml-[20%]">
                     <img src={MyPic} className="relative h-[35vw] rounded-xl"></img>
-                    <div ref={this.outputRef} className="w-[50vw] max-h-[35vw] h-[35vw] bg-black border-2 border-white overflow-scroll text-[1.5vw]">
+                    <div ref={this.outputRef} className="w-[50vw] max-h-[40vw] h-[40vw] bg-slate-950 border-2 border-grey overflow-scroll text-[1.5vw] text-emerald-600 text-semibold rounded-lg">
                         <div>
                             <p dangerouslySetInnerHTML={{ __html: this.state.output }}></p>
                         </div>
                         <input
-                        className="text-white bg-transparent border-none w-[50vw]"
+                        className="bg-transparent border-none w-[50vw] outline-none"
                         type='text'
                         value={this.state.input || 'C:\\NirmalC> '}
                         onChange={e => {
