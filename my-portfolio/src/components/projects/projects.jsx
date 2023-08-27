@@ -49,7 +49,7 @@ function Container({Name, Date, Git, Image, Des}){
             <div className="flex flex-col justify-center items-center text-center">
                 <h1 className="text-[3vw] font-medium">{Name}</h1>
                 <h2 className="text-[1.5vw]">{Date}</h2>
-                <a href={Git}><AiFillGithub className='text-[4vw] hover:scale-125'/></a>
+                <a href={Git} target="_blank"><AiFillGithub className='text-[4vw] hover:scale-125'/></a>
             </div>
             <p className="text-[1.5vw] flex flex-col justify-center items-center">{Des}</p>
 
