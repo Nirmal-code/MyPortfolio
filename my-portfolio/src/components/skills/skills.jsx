@@ -15,6 +15,9 @@ import r from './../../images/r.png';
 import html from './../../images/html.png';
 import css from './../../images/css.png';
 import treesitter from './../../images/tree-sitter.png';
+import ubuntu from './../../images/ubuntu.png';
+import docker from './../../images/docker.png';
+import quartus from './../../images/quartus.png';
 
 
 export default class Skills extends Component{
@@ -24,6 +27,7 @@ export default class Skills extends Component{
             <div id="skills" className='h-fit h-fit mb-10 w-[100vw] mt-[2vw]'>
                 <h1 className='sm:text-[3.5vw] text-[5vw] ml-[5%] mb-2 text-white font-bold'>&lt;Skills / &gt;</h1>
                 <div className="grid grid-cols-5 sm:gap-10 ml-[20vw] justify-center items-center w-[60vw] mt-[2vw]">
+
                     <img src={python} alt="python" />
                     <img src={java} alt="java" />
                     <img src={git} alt="git" />
@@ -39,6 +43,9 @@ export default class Skills extends Component{
                     <img src={html} alt="html" />
                     <img src={css} alt="css" />
                     <img src={treesitter} alt="tree-sitter" />
+                    <img src={ubuntu} alt="ubuntu" />
+                    <img src={docker} alt="docker" />
+                    <img src={quartus} alt="quartus" />
 
                 </div>
 
