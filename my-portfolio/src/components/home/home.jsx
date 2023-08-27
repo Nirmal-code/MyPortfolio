@@ -6,6 +6,8 @@ import {AiOutlineMail} from 'react-icons/ai';
 import {AiFillLinkedin} from 'react-icons/ai';
 import {AiFillGithub} from 'react-icons/ai';
 
+import resume from '../../docs/Nirmal_Chaudhari_Resume.pdf'
+
 
 
 export default class Home extends Component{
@@ -37,10 +39,10 @@ export default class Home extends Component{
                             Skilled at developing, testing, and implementing efficient codes to perform various tasks
                         </p>
                         <div className='my-[2vw] flex'> 
-                            <button className='font-semibold text-[1.5vw] hover:text-white w-fit p-[1vw] mr-[3vw] hover:bg-transparent border-[1px] hover:border-white hover:cursor-pointer border-black bg-white text-black rounded-lg'>Download Resume</button>
-                            <button className='font-semibold flex items-center text-[1.5vw] hover:text-white w-fit p-[1vw] mr-[3vw] hover:bg-transparent border-2 hover:border-white hover:cursor-pointer border-black bg-white text-black rounded-lg'>
+                            <a href={resume} download className='font-semibold text-[1.5vw] hover:text-white w-fit p-[1vw] mr-[3vw] hover:bg-transparent border-[1px] hover:border-white hover:cursor-pointer border-black bg-white text-black rounded-lg'>Download Resume</a>
+                            <a href="mailto: nirmal.chaudhari2003@gmail.com" className='font-semibold flex items-center text-[1.5vw] hover:text-white w-fit p-[1vw] mr-[3vw] hover:bg-transparent border-2 hover:border-white hover:cursor-pointer border-black bg-white text-black rounded-lg'>
                                 <span className='align-middle'><AiOutlineMail /></span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div>
