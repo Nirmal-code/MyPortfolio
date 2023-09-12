@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MyPortfolio/static/css/main.a4a9f438.css",
-    "main.js": "/MyPortfolio/static/js/main.80b1d3d4.js",
+    "main.js": "/MyPortfolio/static/js/main.bf0c6511.js",
     "static/js/787.128fc6e9.chunk.js": "/MyPortfolio/static/js/787.128fc6e9.chunk.js",
     "static/media/q_arm.png": "/MyPortfolio/static/media/q_arm.c0351ba5db557232994c.png",
     "static/media/my_picture.jpg": "/MyPortfolio/static/media/my_picture.a91a4c5cf5b6606c64bc.jpg",
@@ -22,8 +22,8 @@
     "static/media/r.png": "/MyPortfolio/static/media/r.fd47ae8706e150f2c6f1.png",
     "static/media/1P13.png": "/MyPortfolio/static/media/1P13.f0ca69211e1a803a6946.png",
     "static/media/c.png": "/MyPortfolio/static/media/c.c0da8156a8d17281c29e.png",
-    "static/media/Nirmal_Chaudhari_Resume.pdf": "/MyPortfolio/static/media/Nirmal_Chaudhari_Resume.31b71a229cc577dc89b1.pdf",
     "static/media/ubuntu.png": "/MyPortfolio/static/media/ubuntu.1ec3f03acc80e70fe2f0.png",
+    "static/media/Nirmal_Chaudhari_Resume.pdf": "/MyPortfolio/static/media/Nirmal_Chaudhari_Resume.fb80e2157093f296ec5f.pdf",
     "static/media/home_image.png": "/MyPortfolio/static/media/home_image.05ed5ba3cc6f8606fe99.png",
     "static/media/gatsby.png": "/MyPortfolio/static/media/gatsby.1ac185b7311841850204.png",
     "static/media/McSCert.png": "/MyPortfolio/static/media/McSCert.e8fcce72d3cada08f428.png",
@@ -35,11 +35,11 @@
     "static/media/node.png": "/MyPortfolio/static/media/node.a944ef19fe84ba7371f2.png",
     "index.html": "/MyPortfolio/index.html",
     "main.a4a9f438.css.map": "/MyPortfolio/static/css/main.a4a9f438.css.map",
-    "main.80b1d3d4.js.map": "/MyPortfolio/static/js/main.80b1d3d4.js.map",
+    "main.bf0c6511.js.map": "/MyPortfolio/static/js/main.bf0c6511.js.map",
     "787.128fc6e9.chunk.js.map": "/MyPortfolio/static/js/787.128fc6e9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a4a9f438.css",
-    "static/js/main.80b1d3d4.js"
+    "static/js/main.bf0c6511.js"
   ]
 }
