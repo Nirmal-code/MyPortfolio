@@ -1,5 +1,3 @@
-import React, {Component} from 'react';
-
 import python from './../../images/python.png';
 import java from './../../images/java.png';
 import c from './../../images/c.png';
@@ -19,38 +17,52 @@ import ubuntu from './../../images/ubuntu.png';
 import docker from './../../images/docker.png';
 import quartus from './../../images/quartus.png';
 
+const skills = [
+  { name: 'Python', image: python },
+  { name: 'Java', image: java },
+  { name: 'Git', image: git },
+  { name: 'C', image: c },
+  { name: 'Bash', image: bash },
+  { name: 'JavaScript', image: javascript },
+  { name: 'Matlab', image: matlab },
+  { name: 'SQL', image: sql },
+  { name: 'React', image: react },
+  { name: 'Node.js', image: nodejs },
+  { name: 'Gatsby', image: gatsby },
+  { name: 'R', image: r },
+  { name: 'HTML', image: html },
+  { name: 'CSS', image: css },
+  { name: 'Tree-sitter', image: treesitter },
+  { name: 'Ubuntu', image: ubuntu },
+  { name: 'Docker', image: docker },
+  { name: 'Quartus', image: quartus },
+];
 
-export default class Skills extends Component{
-
-    render(){
-        return(
-            <div id="skills" className='h-fit h-fit mb-10 w-[100vw] mt-[2vw]'>
-                <h1 className='sm:text-[3.5vw] text-[5vw] ml-[5%] mb-2 text-white font-bold'>&lt;Skills / &gt;</h1>
-                <div className="grid grid-cols-5 sm:gap-10 ml-[20vw] justify-center items-center w-[60vw] mt-[2vw]">
-
-                    <img src={python} alt="python" />
-                    <img src={java} alt="java" />
-                    <img src={git} alt="git" />
-                    <img src={c} alt="C" />
-                    <img src={bash} alt="bash" />
-                    <img src={javascript} alt="javascript" />
-                    <img src={matlab} alt="matlab" />
-                    <img src={sql} alt="sql" />
-                    <img src={react} alt="react" />
-                    <img src={nodejs} alt="nodejs" />
-                    <img src={gatsby} alt="gatsby" />
-                    <img src={r} alt="R" />
-                    <img src={html} alt="html" />
-                    <img src={css} alt="css" />
-                    <img src={treesitter} alt="tree-sitter" />
-                    <img src={ubuntu} alt="ubuntu" />
-                    <img src={docker} alt="docker" />
-                    <img src={quartus} alt="quartus" />
-
-                </div>
-
-
+export default function Skills() {
+  return (
+    <section id="skills" className="section">
+      <div className="container">
+        <h2 className="section-title">
+          <span>&lt;Skills</span> /&gt;
+        </h2>
+        <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 sm:gap-6 md:grid-cols-6">
+          {skills.map((skill) => (
+            <div
+              key={skill.name}
+              className="flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:-translate-y-1 hover:border-amber-200/40 hover:bg-white/10"
+              title={skill.name}
+            >
+              <img
+                src={skill.image}
+                alt={skill.name}
+                loading="lazy"
+                decoding="async"
+                className="h-10 w-10 object-contain sm:h-12 sm:w-12"
+              />
             </div>
-        )
-    }
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

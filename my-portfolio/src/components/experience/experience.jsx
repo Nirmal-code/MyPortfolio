@@ -1,149 +1,153 @@
-import React, {Component} from 'react';
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-
-import {BsBriefcaseFill} from 'react-icons/bs';
-import {MdVolunteerActivism} from 'react-icons/md';
-import {MdSchool} from 'react-icons/md';
-
 import McSCert from '../../images/McSCert.png';
-import sfl from '../../images/sfl.png';
-import archway from '../../images/archway.jpeg';
-import uclub from '../../images/uclub.png';
-import homedepot from '../../images/homedepot.png';
-import formula from '../../images/formula.png';
+import Vena from '../../images/vena.jpeg';
+import EcoCAR from '../../images/ecocar.jpeg';
 
+const experiences = [
+  {
+    date: 'Aug 2025 - Present',
+    title: 'Software Research Assistant, Calliope',
+    org: 'McSCert',
+    location: 'Hamilton, ON',
+    sortKey: 202508,
+    highlights: [
+      'Designed a cross-platform journaling app in Flutter with on-device sentiment analysis.',
+      'Collaborated with psychologists from UQAM to refine and prioritize requirements.',
+      "Converted Hugging Face's NLP model to TFLite with float16 quantization, reducing size by 65%.",
+      'Built a feedback + resync loop to personalize outputs and refresh models when online.',
+    ],
+    tools: 'Flutter, Dart, TFLite, Hugging Face, NLP, Product Discovery',
+    image: McSCert,
+  },
+  {
+    date: 'May 2024 - Aug 2025',
+    title: 'Software Engineer Co-op',
+    org: 'Vena',
+    location: 'Toronto, ON',
+    sortKey: 202508,
+    highlights: [
+      'Built Microsoft add-ins with ReactJS and SSP servers using Spring Boot and Hibernate.',
+      'Led monolith-to-microservices planning with weekly architecture reviews and cross-team coordination.',
+      'Replaced polling with Server-Sent Events (SSE), reducing refresh time by 80%.',
+      'Improved backend performance by ~150% via parallelization, Jaeger profiling, and multi-cloud CI/CD.',
+    ],
+    tools:
+      'React, Spring Boot, Hibernate, SSE, Jaeger, Jenkins, AWS, Azure, MCP',
+    image: Vena,
+  },
+  {
+    date: 'Sep 2023 - May 2024',
+    title: 'Software Research Assistant, jPipe Compiler',
+    org: 'McSCert',
+    location: 'Hamilton, ON',
+    sortKey: 202405,
+    highlights: [
+      'Won 2nd place in the 2024 MODELS competition for contributions to the jPipe DSL compiler.',
+      'Extended the Java compiler to support patterns and abstract composition for CI/CD pipeline justification.',
+      'Built a VS Code extension with real-time visualization, syntax highlighting, and LSP diagnostics.',
+      'Implemented visitor-based traversal logic to decouple data structures from operations.',
+    ],
+    tools: 'Java, TypeScript, VS Code API, LSP, DSL Tooling',
+    image: McSCert,
+  },
+  {
+    date: 'May 2023 - Aug 2023',
+    title: 'Software Research Intern, Git Tool',
+    org: 'McSCert',
+    location: 'Hamilton, ON',
+    sortKey: 202308,
+    highlights: [
+      'Developed merge tools in Python to improve source-code merging for Python and Java.',
+      'Designed an abstract data structure to depict statically and dynamically typed code.',
+      'Integrated the tool with Git and improved semantic accuracy over jDime and Spork by 19% and 90%.',
+      'Ran validation tests using developer-selected versions as benchmarks.',
+    ],
+    tools:
+      'Python, Git, AST/CST, Tree-Sitter, Gumtree, jDime, Spork',
+    image: McSCert,
+  },
+  {
+    date: 'Sep 2023 - May 2024',
+    title: 'CAV Software Developer',
+    org: 'McMaster EcoCAR',
+    location: 'Hamilton, ON',
+    sortKey: 202405,
+    highlights: [
+      'Collaborated with 40+ teammates to implement autonomous driving features for the EcoCAR EV Challenge.',
+      'Estimated vehicle position in trajectories using dead reckoning from IMU data.',
+      'Clustered sensor data using K-Means and DBSCAN algorithms in Python.',
+      'Implemented PyUnit tests and simulated algorithms in the Carla SIL environment.',
+    ],
+    tools: 'Python, IMU, K-Means, DBSCAN, Carla, PyUnit',
+    image: EcoCAR
+  },
+];
 
+export default function Experience() {
+  const sortedExperiences = [...experiences].sort(
+    (a, b) => b.sortKey - a.sortKey
+  );
 
-export default class Experience extends Component{
-
-
-    render(){
-        return(
-            <div id="experience" className='h-fit h-fit mb-10 w-[100vw] mt-[0vw]'>
-                <h1 className='sm:text-[3.5vw] text-[5vw] ml-[5%] mb-2 text-white font-bold'>&lt;Experiences / &gt;</h1>
-                <VerticalTimeline>
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        dateClassName={ 'text-black font-bold bg-white rounded-lg' }
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        date="May 2023 - Aug 2023"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<BsBriefcaseFill />}
-                    >
-                        <h3 className="vertical-timeline-element-title font-bold">Undergrad Software Research Intern</h3>
-                        <h3 className="vertical-timeline-element-title font-bold">McSCert</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Hamilton, ON</h4>
-                        <p>
-                            Developed a new structured merge tool for Python and Java source code. Improved accuracy over existing solutions by almost 30%, and integrated it with Git software.
-                        </p>
-                        <p><b>Tools</b>: Git, Java, Python, Abstract Syntax Tree (AST), Concrete Syntax Tree (CST), Tree-Sitter, Gumtree, jDime, Spork</p>
-                        <img className="w-[25%] relative left-[37.5%]" src={McSCert} alt='McSCert' />
-
-                    </VerticalTimelineElement>
-
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        date="Sep 2021 - May 2023"
-                        dateClassName={ 'text-black font-bold bg-white rounded-lg' }
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<BsBriefcaseFill />}
-                    >
-                        <h3 className="vertical-timeline-element-title font-bold">Web Developer</h3>
-                        <h3 className="vertical-timeline-element-title font-bold">Software for Love</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Remote</h4>
-                        <p>
-                        Collaborated with experienced programmers using Git to develop websites using JavaScript frameworks for the purpose of making a positive difference in my community by recognizing pertinacious individuals and giving them a platform to talk to others. </p>
-                        <p><b>Tools</b>: Git, JavaScript, NodeJS, React.js, HTML, CSS, Gatsby Cloud</p>
-
-                        <img className="w-[25%] relative left-[37.5%]" src={sfl} alt='SFL' />
-
-                    </VerticalTimelineElement>
-
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        dateClassName={ 'text-black font-bold bg-white rounded-lg' }
-                        date="Sep 2022 - May 2023"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<MdSchool />}
-                    >
-                        <h3 className="vertical-timeline-element-title font-bold">Archway Mentor</h3>
-                        <h3 className="vertical-timeline-element-title font-bold">McMaster University</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Hamilton, ON</h4>
-                        <p>
-                            Mentored a group of 40 first-year undergraduate students to help them transition into a university environment. 
-                        </p>
-                        <p><b>Skills</b>: Collaborative Leadership, Mentoring, Jira, Event Planning</p>
-
-                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={archway} alt='archway' />
-
-                    </VerticalTimelineElement>
-
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        dateClassName={ 'text-black font-bold bg-white rounded-lg' }
-                        date="Jun 2022 - Aug 2022"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<BsBriefcaseFill />}
-                    >
-                        <h3 className="vertical-timeline-element-title font-bold">Frontend Developer</h3>
-                        <h3 className="vertical-timeline-element-title font-bold">uClub</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Remote</h4>
-                        <p>
-                            Used React to help build a large scaled project by developing the frontend code for various pages. Overall purpose of the project was to help students find academic resources more easily.
-                        </p>
-                        <p><b>Tools</b>: Git, React.js, JavaScript, HTML, CSS</p>
-
-                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={uclub} alt='uclub' />
-
-                    </VerticalTimelineElement>
-
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        dateClassName={ 'text-black font-bold bg-white rounded-lg' }
-                        date="May 2022 - Aug 2022"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<BsBriefcaseFill />}
-                    >
-                        <h3 className="vertical-timeline-element-title font-bold">Sales Associate</h3>
-                        <h3 className="vertical-timeline-element-title font-bold">Home Depot</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Brampton, ON</h4>
-                        <p>
-                            Collaborated with management and associates to manage inventory using MST Lite to increase accessibility of merchandise to customers.</p>
-                        <p><b>Skills</b>: Communication, Inventory Management, Customer Engagement</p>
-
-                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={homedepot} alt='homedepot' />
-
-                    </VerticalTimelineElement>
-
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        dateClassName={ 'text-black font-bold bg-white rounded-lg' }
-                        date="Oct 2021 - Jun 2022"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<MdSchool />}
-                    >
-                        <h3 className="vertical-timeline-element-title font-bold">Programmer-Software & Vehicle Controls</h3>
-                        <h3 className="vertical-timeline-element-title font-bold">Mac Formula Electric</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Hamilton, ON</h4>
-                        <p>
-                        Programmed a car's microcontrollers to adjust values of registers using C to ensure that car components interact accurately. Collaborated with other experienced programmers using the MATLAB and Simulink environments to create C programs using various cells in control systems.</p>
-                        <p><b>Tools</b>: C, Matlab, Simulink, MicroControllers</p>
-
-                        <img className="w-[30%] relative left-[32.5%] rounded-lg" src={formula} alt='formula' />
-
-                    </VerticalTimelineElement>
-
-                    </VerticalTimeline>
-
-            </div>
-        )
-    }
+  return (
+    <section id="experience" className="section">
+      <div className="container">
+        <h2 className="section-title">
+          <span>&lt;Experiences</span> /&gt;
+        </h2>
+        <div className="grid gap-6">
+          {sortedExperiences.map((item) => (
+            <article key={`${item.title}-${item.date}`} className="card">
+              <div className="grid gap-6 md:grid-cols-[160px_minmax(0,1fr)]">
+                {item.image ? (
+                  <div className="flex items-center justify-center rounded-xl border border-white/10 bg-slate-900/60 p-4">
+                    <img
+                      className="max-h-24 object-contain"
+                      src={item.image}
+                      alt={item.org}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : (
+                  <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4">
+                    <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                      {item.org}
+                    </p>
+                    <p className="mt-3 text-3xl font-semibold text-white">
+                      {item.location.split(',')[0]}
+                    </p>
+                  </div>
+                )}
+                <div className="space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-amber-200">{item.org}</p>
+                      <p className="text-sm text-slate-300">{item.location}</p>
+                    </div>
+                    <span className="accent-pill text-xs text-slate-200">
+                      {item.date}
+                    </span>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-200/85 sm:text-base">
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-amber-300" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs text-slate-300 sm:text-sm">
+                    <span className="font-semibold text-slate-100">Tools:</span>{' '}
+                    {item.tools}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

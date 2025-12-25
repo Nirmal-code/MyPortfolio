@@ -1,20 +1,26 @@
-import React,{ Component, createRef  } from 'react';
-import MyPic from '../../images/my_picture.jpg';
-import Terminal from 'terminal-in-react';
+import React, { Component, createRef } from 'react';
+const PROMPT = 'C:\\NirmalC> ';
+const WELCOME_MESSAGE = "Welcome to my terminal. Enter 'help' to get started";
+const quickFacts = [
+    'Software Engineering student at McMaster University',
+    'Focused on building sustainable, user-centered products',
+    'Enjoys building innovative and experimental solutions that address various problems',
+];
+const highlights = [
+    '2+ years of fullstack development experience across teams and internships',
+    '9+ projects spanning web development, tooling, and applied ML',
+];
 
+export default class About extends Component {
 
-
-export default class About extends Component{
-
-    constructor(){
+    constructor() {
         super();
-        this.state={
-            input:'',
-            output:"Welcome to my terminal. Enter 'help' to get started",
-        }
+        this.state = {
+            input: PROMPT,
+            output: WELCOME_MESSAGE,
+            view: 'bio',
+        };
         this.outputRef = createRef();
-
-
     }
 
     componentDidUpdate() {
@@ -22,70 +28,167 @@ export default class About extends Component{
     }
 
     scrollToBottom = () => {
-        this.outputRef.current.scrollTop = this.outputRef.current.scrollHeight;
+        if (this.outputRef.current) {
+            this.outputRef.current.scrollTop = this.outputRef.current.scrollHeight;
+        }
     };
 
-    render(){
-        return(
-            <div id="about" className='h-fit h-fit mb-10 w-[100vw] mt-[5vw]'>
-                <h1 className='sm:text-[3.5vw] text-[5vw] ml-[5%] mb-2 text-white font-bold'>&lt;About Me / &gt;</h1>
-                <div className="grid grid-cols-[35vw_65vw] items-center justify-center pt-[3vw] ml-[20%]">
-                    <img src={MyPic} className="relative h-[35vw] rounded-xl"></img>
-                    <div ref={this.outputRef} className="w-[50vw] max-h-[40vw] h-[40vw] bg-slate-950 border-2 border-grey overflow-scroll text-[1.5vw] text-emerald-600 text-semibold rounded-lg">
-                        <div>
-                            <p dangerouslySetInnerHTML={{ __html: this.state.output }}></p>
+    handleChange = (event) => {
+        const nextValue = event.target.value;
+        if (!nextValue.startsWith(PROMPT)) {
+            this.setState({ input: PROMPT });
+            return;
+        }
+        this.setState({ input: nextValue });
+    };
+
+    handleKeyDown = (event) => {
+        if (event.key !== 'Enter') {
+            return;
+        }
+
+        const rawInput = this.state.input;
+        if (!rawInput || rawInput === PROMPT) {
+            return;
+        }
+
+        const command = rawInput.replace(PROMPT, '').trim();
+        let newOutput = `${this.state.output}<br>${rawInput}`;
+
+        switch (command) {
+            case 'help':
+                newOutput +=
+                    "<p style='margin-left:5%;'>'des': My Description <br> 'gpa': Current GPA <br> 'projects': Relevant Projects <br> 'experience': Relevant Work Experience <br> 'clear': Clear Terminal</p>";
+                break;
+            case 'des':
+                newOutput +=
+                    "<p style='margin-left:5%;'>Hello! I am a final-year Software Engineering student at McMaster University. I enjoy taking part in collaborative projects, especially those that I believe will help me make a positive impact on our society. I seek out opportunities that will allow me to develop these skills so that I may more effectively do this.</p>";
+                break;
+            case 'gpa':
+                newOutput +=
+                    "<p style='margin-left:5%;'>My current GPA is 3.9.</p>";
+                break;
+            case 'projects':
+                newOutput +=
+                    "<p style='margin-left:5%;'>I have completed 9+ projects. Checkout the Projects section of the website for more information.</p>";
+                break;
+            case 'experience':
+                newOutput +=
+                    "<p style='margin-left:5%;'>I have over 4 years of relevant work experience. Checkout the Experiences section of the website for more information.</p>";
+                break;
+            case 'clear':
+                newOutput = WELCOME_MESSAGE;
+                break;
+            default:
+                newOutput +=
+                    "<p style='margin-left:5%;'>Invalid command; see 'help' for available commands.</p>";
+                break;
+        }
+
+        this.setState({ input: PROMPT, output: newOutput });
+    };
+
+    render() {
+        return (
+            <section id="about" className="section">
+                <div className="container">
+                    <div className="flex flex-wrap items-center justify-between gap-4">
+                        <h2 className="section-title">
+                            <span>&lt;About</span> Me /&gt;
+                        </h2>
+                        <div className="flex items-center gap-2">
+                            <button
+                                type="button"
+                                onClick={() => this.setState({ view: 'bio' })}
+                                className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                                    this.state.view === 'bio'
+                                        ? 'bg-amber-300 text-slate-900'
+                                        : 'bg-white/10 text-white hover:bg-white/20'
+                                }`}
+                                aria-pressed={this.state.view === 'bio'}
+                            >
+                                Bio
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => this.setState({ view: 'terminal' })}
+                                className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                                    this.state.view === 'terminal'
+                                        ? 'bg-amber-300 text-slate-900'
+                                        : 'bg-white/10 text-white hover:bg-white/20'
+                                }`}
+                                aria-pressed={this.state.view === 'terminal'}
+                            >
+                                Terminal
+                            </button>
                         </div>
-                        <input
-                        className="bg-transparent border-none w-[50vw] outline-none"
-                        type='text'
-                        value={this.state.input || 'C:\\NirmalC> '}
-                        onChange={e => {
-                            if (!e.target.value.includes('C:\\NirmalC> ')) {
-                                this.setState({ input: 'C:\\NirmalC> ' });
-                            } else {
-                                this.setState({ input: e.target.value });
-                            }
-                        }}
-                        onKeyDown={e=>{
-                            if (e.key==='Enter'){
-                                if (this.state.input!=""){
-                                    let new_output=""
-                                    new_output=this.state.output+"<br>"+this.state.input
-                                    switch(this.state.input){
-                                        case 'C:\\NirmalC> help':
-                                            new_output+="<p style='margin-left:5%;'>'des': My Description <br> 'gpa': Current GPA <br> 'courses': Relevant Courses <br> 'projects': Relevant Projects <br> 'experience': Relevant Work Experience <br> 'clear': Clear Terminal</p>"
-                                            break;
-                                        case 'C:\\NirmalC> des':
-                                            new_output+="<p style='margin-left:5%;'></div>Hello! I am a second-year Software Engineering student at McMaster University. I enjoy taking part in collaborative projects, especially those that I believe will help me make a positive impact on our society. I seek out opportunities that will allow me to develop these skills so that I may more effectively do this.</p>"
-                                            break;
-                                        case 'C:\\NirmalC> gpa':
-                                            new_output+="<p style='margin-left:5%;'>My current GPA is 3.98, or 11.9 on McMasters Scale. Use the 'courses' command to see my marks for the technical courses.</p>"
-                                            break;
-                                        case 'C:\\NirmalC> courses':
-                                            new_output+="<p style='margin-left:5%;'>Engineering Cornerstone Design Project, Grade:A+ <br> Object-Oriented Programming, Grade:A+ <br> Software Engineering Practice and Experience, Grade: A+ <br> Digital Systems and Interfacing, Grade: A+ <br> Data Structures and Algorithms, Grade: A+ <br> Software Design-Intro to Software Development, Grade: A+ <br> Computer Architecture, Grade: A</p>"
-                                            break;
-                                        case 'C:\\NirmalC> projects':
-                                            new_output+="<p style='margin-left:5%;'>I have completed 7+ projects. Checkout the Projects section of the website for more information </p>"
-                                            break;
-                                        case 'C:\\NirmalC> experience':
-                                            new_output+="<p style='margin-left:5%;'>I have over 2 years of relevant work experience. Checkout the Experiences section of the website for more information</p>"
-                                            break;
-                                        case 'C:\\NirmalC> clear':
-                                            this.state.output="Welcome to my terminal. Enter 'help' to get started"
-                                            new_output=this.state.output
-                                            break;
-                                        default:
-                                            new_output+="<p style='margin-left:5%;'>Invalid command; see 'help' for available commands </p>"
-                                            break;
-                                    }
-                                    this.setState({input:'',output:new_output})
-                                }
-                            }
-                        }
-                        }/>
+                    </div>
+                    <div className="mt-8">
+                        {this.state.view === 'terminal' ? (
+                            <div className="card bg-slate-950/80 flex h-[360px] flex-col">
+                                <div
+                                    ref={this.outputRef}
+                                    className="flex-1 overflow-y-auto font-mono text-sm text-emerald-300 sm:text-base"
+                                >
+                                    <div
+                                        dangerouslySetInnerHTML={{ __html: this.state.output }}
+                                    />
+                                </div>
+                                <input
+                                    className="mt-3 w-full border-none bg-transparent font-mono text-sm text-emerald-200 outline-none sm:text-base"
+                                    type="text"
+                                    value={this.state.input}
+                                    onChange={this.handleChange}
+                                    onKeyDown={this.handleKeyDown}
+                                    aria-label="Terminal input"
+                                />
+                            </div>
+                        ) : (
+                            <div className="space-y-6">
+                                <div className="card">
+                                    <h3 className="text-lg font-semibold text-white">
+                                        Bio
+                                    </h3>
+                                    <p className="mt-3 text-sm leading-relaxed text-slate-200/85 sm:text-base">
+                                        I am a software engineering student focused on building
+                                        reliable, user-centered products. I enjoy turning complex
+                                        ideas into simple, elegant interfaces while collaborating
+                                        closely with teams to ship polished results.
+                                    </p>
+                                </div>
+                                <div className="grid gap-4 md:grid-cols-2">
+                                    <div className="card">
+                                        <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-200">
+                                            Quick facts
+                                        </h4>
+                                        <ul className="mt-3 space-y-2 text-sm text-slate-200/85 sm:text-base">
+                                            {quickFacts.map((fact) => (
+                                                <li key={fact} className="flex gap-2">
+                                                    <span className="mt-2 h-2 w-2 rounded-full bg-amber-300" />
+                                                    <span>{fact}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    <div className="card">
+                                        <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-200">
+                                            Highlights
+                                        </h4>
+                                        <ul className="mt-3 space-y-2 text-sm text-slate-200/85 sm:text-base">
+                                            {highlights.map((item) => (
+                                                <li key={item} className="flex gap-2">
+                                                    <span className="mt-2 h-2 w-2 rounded-full bg-cyan-300" />
+                                                    <span>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
-            </div>
-        )
+            </section>
+        );
     }
 }

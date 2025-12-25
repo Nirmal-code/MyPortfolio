@@ -1,28 +1,80 @@
-import {Component,React,useState} from 'react';
+import { useEffect, useState } from 'react';
 
+const navItems = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#publications', label: 'Publications' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#skills', label: 'Skills' },
+];
 
-import {BiSolidHome} from 'react-icons/bi';
-import {HiOutlineInformationCircle} from 'react-icons/hi';
-import {MdWorkHistory} from 'react-icons/md';
-import {GoProjectSymlink} from 'react-icons/go';
-import {GiSkills} from 'react-icons/gi';
+export default function Navbar() {
+  const [activeSection, setActiveSection] = useState('home');
 
+  useEffect(() => {
+    const sectionIds = navItems.map((item) => item.href.replace('#', ''));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
 
-
-export default class navbar extends Component{
-
-    render(){
-        return(
-            <div className="z-50 text-[3rem] sm:text-[3rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4.5rem] fixed bottom-7 left-[10vw] p-3 rounded-full w-[80vw] bg-slate-300 bg-white bg-opacity-50 shadow-1xl shadow-[#71717a]">
-                <div className="flex justify-center">
-                    <a href="#"><BiSolidHome className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
-                    <a href="#about"><HiOutlineInformationCircle className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
-                    <a href="#experience"><MdWorkHistory className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
-                    <a href="#projects"><GoProjectSymlink className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer mr-2.5" /></a>
-                    <a href="#skills"><GiSkills className="p-3 text-white bg-black rounded-lg hover:scale-125 border-2 border-black hover:cursor-pointer" /></a>
-                </div>
-            </div>
-        )
+    if (!sections.length) {
+      return undefined;
     }
 
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 140;
+      let currentSection = sections[0].id;
+
+      sections.forEach((section) => {
+        console.log('Section:', section.id, 'OffsetTop:', section.offsetTop);
+        console.log('Scroll Position:', scrollPosition);
+        if (scrollPosition >= section.offsetTop) {
+          currentSection = section.id;
+        }
+      });
+
+      console.log('Current Section:', currentSection);
+
+      setActiveSection(currentSection);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  return (
+    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-slate-950/70 backdrop-blur-md">
+      <div className="container flex flex-wrap items-center justify-between gap-4 py-4">
+        <a href="#home" className="text-lg font-semibold text-white">
+          Nirmal <span className="text-amber-300">Chaudhari</span>
+        </a>
+        <div className="flex flex-wrap items-center gap-4 text-sm font-semibold text-slate-200">
+          {navItems.map(({ href, label }) => {
+            const isActive = activeSection === href.replace('#', '');
+            return (
+              <a
+                key={label}
+                href={href}
+                aria-current={isActive ? 'page' : undefined}
+                className={`rounded-full px-3 py-1 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300/70 ${
+                  isActive
+                    ? 'bg-amber-300 text-slate-900'
+                    : 'text-slate-200 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {label}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </nav>
+  );
 }

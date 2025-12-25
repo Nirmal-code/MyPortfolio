@@ -1,21 +1,12 @@
-import React, {Component} from 'react';
-
-
-
-
-export default class Footer extends Component{
-
-
-    render(){
-        return(
-            <div className="h-[200px] bg-indigo-800 w-[100vw] text-[1.5vw] text-white font-bold rounded-t-3xl">
-                <h1 className="text-center relative pt-[2vw]">Developed by Nirmal Chaudhari Aug 2023</h1>
-
-            </div>
-        )
-    }
+export default function Footer() {
+  return (
+    <footer className="mt-16 border-t border-white/10 bg-slate-950/70">
+      <div className="container py-10 text-center text-sm text-slate-300">
+        Developed by <span className="text-slate-100">Nirmal Chaudhari</span>{' '}
+        · Aug 2023
+      </div>
+    </footer>
+  );
 }
-
-
 
 
