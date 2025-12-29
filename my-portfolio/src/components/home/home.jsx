@@ -1,4 +1,4 @@
-import Typed from 'react-typed';
+import { ReactTyped } from "react-typed";
 import { AiOutlineMail, AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
 import myHeadshot from '../../images/my_picture.jpg';
 
@@ -46,7 +46,7 @@ export default function Home() {
               <span className="gradient-text">Nirmal Chaudhari</span>.
               <span className="mt-4 block text-[clamp(1.15rem,2.4vw,2rem)] font-semibold text-slate-200">
                 <span className="text-amber-300">&lt;</span>{' '}
-                <Typed
+                <ReactTyped
                   strings={[
                     'Software Developer',
                     'Engineering Student',
