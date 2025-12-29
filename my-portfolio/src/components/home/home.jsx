@@ -75,6 +75,7 @@ export default function Home() {
               <a
                 href="mailto: nirmal.chaudhari2003@gmail.com"
                 target="_blank"
+                rel="noreferrer noopener"
                 className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/20"
               >
                 <AiOutlineMail className="text-lg" />

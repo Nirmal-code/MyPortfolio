@@ -51,11 +51,14 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-slate-950/70 backdrop-blur-md">
-      <div className="container flex flex-wrap items-center justify-between gap-4 py-4">
-        <a href="#home" className="text-lg font-semibold text-white">
+      <div className="container flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-4">
+        <a
+          href="#home"
+          className="w-full text-center text-base font-semibold text-white sm:w-auto sm:text-left sm:text-lg"
+        >
           Nirmal <span className="text-amber-300">Chaudhari</span>
         </a>
-        <div className="flex flex-wrap items-center gap-4 text-sm font-semibold text-slate-200">
+        <div className="flex w-full flex-wrap items-center justify-center gap-2 text-xs font-semibold text-slate-200 sm:w-auto sm:justify-end sm:gap-4 sm:text-sm">
           {navItems.map(({ href, label }) => {
             const isActive = activeSection === href.replace('#', '');
             return (
@@ -63,7 +66,7 @@ export default function Navbar() {
                 key={label}
                 href={href}
                 aria-current={isActive ? 'page' : undefined}
-                className={`rounded-full px-3 py-1 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300/70 ${
+                className={`whitespace-nowrap rounded-full px-3 py-1 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300/70 ${
                   isActive
                     ? 'bg-amber-300 text-slate-900'
                     : 'text-slate-200 hover:bg-white/10 hover:text-white'

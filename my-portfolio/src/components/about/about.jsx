@@ -2,14 +2,17 @@ import React, { Component, createRef } from 'react';
 const PROMPT = 'C:\\NirmalC> ';
 const WELCOME_MESSAGE = "Welcome to my terminal. Enter 'help' to get started";
 const quickFacts = [
-    'Software Engineering student at McMaster University',
-    'Focused on building sustainable, user-centered products',
-    'Enjoys building innovative and experimental solutions that address various problems',
+  '4th-year Software Engineering student at McMaster University (GPA 3.9)',
+  'Software Engineer with experience across full-stack, backend systems, and applied ML',
+  'Interested in building scalable, high-impact tools at the intersection of systems and user experience',
 ];
+
 const highlights = [
-    '2+ years of fullstack development experience across teams and internships',
-    '9+ projects spanning web development, tooling, and applied ML',
+  '2+ years of industry and research experience across internships, co-ops, and academic labs',
+  'Led architecture-level work including monolith-to-microservice migration and multi-cloud deployment',
+  'Experience spanning React, Spring Boot, Flutter, cloud infrastructure, and applied machine learning',
 ];
+
 
 export default class About extends Component {
 
