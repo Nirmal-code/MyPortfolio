@@ -9,10 +9,37 @@ import Terrain from '../../images/Terrain.png';
 import GitMerge from '../../images/gitmerge.png';
 import MonoDepth from '../../images/mono-depth.png';
 import Cognia from '../../images/cognia.jpg';
+import Scorpio from '../../images/scorpio.png';
+import SentimentAnalysis from '../../images/sentiment_analysis.png';
+import Audio360 from '../../images/audio360.png';
 
 import { AiFillGithub } from 'react-icons/ai';
 
 const projects = [
+  {
+    name: 'Audio360 (Capstone Project)',
+    date: 'April 2026',
+    link: 'https://github.com/Team6-SixSense/audio360',
+    image: Audio360,
+    description:
+      'Developed smart glasses for real-time environmental awareness, enabling on-device audio classification and directional feedback to assist users (e.g., detecting alarms, vehicles, and speech). Designed and implemented a real-time audio classification pipeline on an STM32 microcontroller, using signal processing (FFT, DCT) and classical ML (PCA + LDA) for efficient edge inference under strict hardware constraints. Benchmarked multiple feature extraction and classification configurations against environmental audio datasets (e.g., UrbanSound8K, FSD-style datasets) to optimize accuracy–latency tradeoffs for embedded deployment. Implemented confidence-based classification with “unknown” handling, improving robustness in noisy/ambiguous conditions and reducing false positives in real-world scenarios',
+  },
+  {
+    name: 'Perspective Sentiment Analysis',
+    date: 'April 2026',
+    link: 'https://github.com/Nirmal-code/4RP3_Model_Benchmarking',
+    image: SentimentAnalysis,
+    description:
+      'Developed and benchmarked emotion detection models using the GoEmotions dataset, comparing prompt-based LLMs (DeepSeek) with fine-tuned transformer models (ModernBERT) to evaluate performance under subjective labeling conditions. Implemented and optimized a fine-tuned ModernBERT pipeline (80/20 stratified split, weighted loss, cross-validation), achieving highest performance (F1: 0.771) over LLM and BERT baselines. Designed an ensemble learning approach by training annotator-specific models to capture labeling variability and compared against majority-vote baselines. Built an interactive web-based benchmarking tool with visual analytics (confusion matrices, per-emotion F1, annotator-level insights) and deployed the best model to mobile via ONNX → TensorFlow → TFLite conversion pipeline',
+  },
+  {
+    name: 'Scorpio',
+    date: 'Feb 2026',
+    link: 'https://github.com/Nirmal-code/Scorpio',
+    image: Scorpio,
+    description:
+      'Designed an LLM-powered portfolio analysis platform using Python that aggregates market data, financial news, and portfolio holdings to generate automated investment summaries and insights. Developed a Model Context Protocol (MCP) server exposing financial tools for LLM tool discovery. Hosted the MCP server and OpenAI agent on a DigitalOcean server using Docker for containerized execution. Configured Nginx for API routing and integrated Supabase (PostgreSQL) for persistent data storage.',
+  },
   {
     name: 'Monocular Depth Perception',
     date: 'Nov 2025',

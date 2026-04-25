@@ -2,13 +2,13 @@ import React, { Component, createRef } from 'react';
 const PROMPT = 'C:\\NirmalC> ';
 const WELCOME_MESSAGE = "Welcome to my terminal. Enter 'help' to get started";
 const quickFacts = [
-  '4th-year Software Engineering student at McMaster University (GPA 3.9)',
-  'Software Engineer with experience across full-stack, backend systems, and applied ML',
+  'Software Engineering graduate at McMaster University (GPA 3.9)',
+  'Software Engineer with experience across full-stack, backend systems, embedded systems, and applied ML',
   'Interested in building scalable, high-impact tools at the intersection of systems and user experience',
 ];
 
 const highlights = [
-  '2+ years of industry and research experience across internships, co-ops, and academic labs',
+  '3+ years of industry and research experience across internships, co-ops, and academic labs',
   'Led architecture-level work including monolith-to-microservice migration and multi-cloud deployment',
   'Experience spanning React, Spring Boot, Flutter, cloud infrastructure, and applied machine learning',
 ];
@@ -153,7 +153,7 @@ export default class About extends Component {
                                         Bio
                                     </h3>
                                     <p className="mt-3 text-sm leading-relaxed text-slate-200/85 sm:text-base">
-                                        I am a software engineering student focused on building
+                                        I am a software engineering graduate focused on building
                                         reliable, user-centered products. I enjoy turning complex
                                         ideas into simple, elegant interfaces while collaborating
                                         closely with teams to ship polished results.
